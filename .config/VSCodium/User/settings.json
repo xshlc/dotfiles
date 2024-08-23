@@ -1,0 +1,61 @@
+{
+  "editor.inlineSuggest.enabled": true,
+  "editor.wordWrap": "on",
+  "git.autofetch": true,
+  "editor.cursorStyle": "line",
+  "editor.cursorBlinking": "smooth",
+  "editor.fontLigatures": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "emmet.preferences": {
+    "output.inlineBreak": 3
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorTheme": "Ayu Dark Bordered",
+  "editor.letterSpacing": 0.6,
+  "editor.lineHeight": 32,
+  "workbench.tree.indent": 15,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.colorCustomizations": {
+    "tree.indentGuidesStroke": "#b7f978"
+  },
+  "playwright.reuseBrowser": true,
+  "playwright.showTrace": false,
+  "editor.guides.bracketPairs": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "workbench.sideBar.location": "right",
+  "editor.stickyScroll.enabled": true,
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "javascript.suggest.paths": false,
+  "typescript.suggest.paths": false,
+  "editor.accessibilitySupport": "off",
+  "debug.javascript.unmapMissingSources": true,
+  "files.autoSave": "afterDelay",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "explorer.compactFolders": false,
+  "editor.fontFamily": "'Monaspace Neon', monospace",
+  "editor.fontSize": 16,
+  "workbench.iconTheme": "material-icon-theme",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "redhat.telemetry.enabled": true
+}

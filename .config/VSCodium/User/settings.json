@@ -26,9 +26,8 @@
     "editor.formatOnSave": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.colorTheme": "Ayu Dark Bordered",
-  "editor.letterSpacing": 0.6,
-  "editor.lineHeight": 32,
+  "editor.letterSpacing": 0.4,
+  "editor.lineHeight": 30,
   "workbench.tree.indent": 15,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.colorCustomizations": {
@@ -48,14 +47,17 @@
   "files.autoSave": "afterDelay",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "explorer.compactFolders": false,
-  "editor.fontFamily": "'Monaspace Neon', monospace",
   "editor.fontSize": 16,
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "icyicons",
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "redhat.telemetry.enabled": true
+  "redhat.telemetry.enabled": true,
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
+  "gruvboxMaterial.darkContrast": "hard",
+  "workbench.preferredDarkColorTheme": "Gruvbox Material Dark"
 }

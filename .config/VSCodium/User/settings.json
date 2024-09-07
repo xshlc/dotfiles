@@ -56,8 +56,9 @@
     "asvetliakov.vscode-neovim": 1
   },
   "redhat.telemetry.enabled": true,
-  "workbench.colorTheme": "Gruvbox Material Dark",
   "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
   "gruvboxMaterial.darkContrast": "hard",
-  "workbench.preferredDarkColorTheme": "Gruvbox Material Dark"
+  "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
+  "workbench.colorTheme": "Kanagawa Dragon",
+  "gruvboxMaterial.darkWorkbench": "flat"
 }

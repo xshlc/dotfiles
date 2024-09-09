@@ -17,17 +17,13 @@
   },
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma",
-    "editor.formatOnSave": true
-  },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.letterSpacing": 0.4,
-  "editor.lineHeight": 30,
+  "editor.lineHeight": 28.4,
   "workbench.tree.indent": 15,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.colorCustomizations": {
@@ -48,17 +44,20 @@
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "explorer.compactFolders": false,
   "editor.fontSize": 16,
-  "workbench.iconTheme": "icyicons",
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "redhat.telemetry.enabled": true,
+  "redhat.telemetry.enabled": false,
   "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
   "gruvboxMaterial.darkContrast": "hard",
-  "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
-  "workbench.colorTheme": "Kanagawa Dragon",
-  "gruvboxMaterial.darkWorkbench": "flat"
+  "gruvboxMaterial.darkWorkbench": "flat",
+  "base16.generator.activatedThemes": [
+    "base16-default-dark",
+    "base16-gruvbox-dark-hard",
+    "base16-gruvbox-material-dark-hard"
+  ],
+  "workbench.colorTheme": "Gruvbox Dark Hard"
 }

@@ -1,3 +1,3 @@
 # dotfiles
 
-## catppuccin + tokyo night theme
+## gruvbox theme

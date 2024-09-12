@@ -59,5 +59,9 @@
     "base16-gruvbox-dark-hard",
     "base16-gruvbox-material-dark-hard"
   ],
-  "workbench.colorTheme": "Gruvbox Dark Hard"
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "editor.lineNumbers": "relative"
 }

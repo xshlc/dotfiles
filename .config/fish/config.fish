@@ -4,7 +4,8 @@ end
 
 set -g fish_greeting
 # neovim
-set -Ux PATH $PATH /opt/nvim-linux64/bin
+# export PATH="$PATH:/opt/nvim-linux64/bin"
+set -gx PATH $PATH /opt/nvim-linux64/bin
 
 #set -Ux PATH /home/seong/.local/bin /home/seong/bin $PATH
 

@@ -9,8 +9,8 @@
     "editor.wordWrap": "on",
     "editor.stickyScroll.enabled": true,
     "workbench.sideBar.location": "right",
-    "editor.fontSize": 15,
-    "editor.fontFamily": "'Hack Nerd Font Mono', 'monospace', monospace",
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'Iosevka Nerd Font Mono', 'monospace', monospace",
     "editor.formatOnSave": true,
     "workbench.tree.indent": 10,
     "workbench.tree.renderIndentGuides": "always",
@@ -21,5 +21,5 @@
         "workbench.colorCustomizations"
     ],
     "animations.Install-Method": "Apc Customize UI++",
-    "workbench.colorTheme": "Minimal Kiwi",
+    "workbench.colorTheme": "Kanagawa Dragon",
 }

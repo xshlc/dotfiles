@@ -63,5 +63,8 @@
   "[go]": {
     "editor.defaultFormatter": "golang.go"
   },
-  "editor.lineNumbers": "relative"
+  "editor.lineNumbers": "relative",
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  }
 }

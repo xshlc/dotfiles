@@ -1,3 +1,4 @@
+-- HELLO THERE
 require 'core.options'
 require 'core.keymaps'
 
@@ -22,28 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-
-  ---- NEO-TREE ----
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
-  },
-  {
-    'luisiacc/gruvbox-baby',
-    branch = 'main', -- Corrected syntax
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.gruvbox_baby_background_color = "dark"
-      vim.g.gruvbox_baby_comment_style = "bold"
-      -- vim.g.gruvbox_baby_keyword_style = "italic"
-      vim.cmd [[colorscheme gruvbox-baby]]
-    end
-  }
+    require 'plugins.neotree',
+    require 'plugins.colortheme',
+    require 'plugins.bufferline'
 })

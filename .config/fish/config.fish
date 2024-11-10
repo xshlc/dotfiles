@@ -23,3 +23,11 @@ set -gx PYTHONPATH /home/seong/.local/lib/python3.12 $PYTHONPATH
 pyenv init - | source
 
 
+# SDKMAN 
+# Set SDKMAN_DIR environment variable
+# set -x SDKMAN_DIR $HOME/.sdkman
+
+# Source the SDKMAN initialization script if it exists
+#if test -f "$SDKMAN_DIR/bin/sdkman-init.sh"
+#    source "$SDKMAN_DIR/bin/sdkman-init.sh"
+#end

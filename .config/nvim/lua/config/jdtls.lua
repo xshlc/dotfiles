@@ -7,7 +7,7 @@ local function get_jdtls()
     local jdtls_path = jdtls:get_install_path()
     -- Obtain the path to the jar which runs the language server
     local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
-     -- Declare white operating system we are using, windows use win, macos use mac
+     -- Declare which operating system we are using, windows use win, macos use mac
     local SYSTEM = "linux"
     -- Obtain the path to configuration files for your specific operating system
     local config = jdtls_path .. "/config_" .. SYSTEM
@@ -47,6 +47,9 @@ local function get_workspace()
     -- Determine the project name
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     -- Create the workspace directory by concatenating the designated workspace path and the project name
+    -- Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.
+    -- Never write another getter or equals method again, with one annotation your class has a fully featured builder, 
+    -- Automate your logging variables, and much more.
     local workspace_dir = workspace_path .. project_name
     return workspace_dir
 end
@@ -54,18 +57,22 @@ end
 
 local function java_keymaps()
     -- Allow yourself to run JdtCompile as a Vim command
+    --  this will allow us to compile our project, this is a straight up complete compile 
+    --  whenever we're done with this, we will be able to say ":JdtCompile" in terminal mode and run the function
     vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
     -- Allow yourself/register to run JdtUpdateConfig as a Vim command
-    -- this is similar to what maven or gradle does
+    --  this is similar to refreshing maven or gradle 
     vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
     -- Allow yourself/register to run JdtBytecode as a Vim command
-    -- -- decompile bytecode into java code 
+    --  allows us to decompile bytecode into java code 
     vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
     -- Allow yourself/register to run JdtShell as a Vim command
-    -- for running and testing java code
+    --  for running and testing java code
     vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
 
-    -- Set a Vim motion to <Space> + <Shift>J + o to organize imports in normal mode
+    -- Set a Vim motion to <Space> + <Shift>J + o to organize imports manually in normal mode
+    --   n for normal mode
+    --   v for visual mode
     vim.keymap.set('n', '<leader>Jo', "<Cmd> lua require('jdtls').organize_imports()<CR>", { desc = "[J]ava [O]rganize Imports" })
     -- Set a Vim motion to <Space> + <Shift>J + v to extract the code under the cursor to a variable
     vim.keymap.set('n', '<leader>Jv', "<Cmd> lua require('jdtls').extract_variable()<CR>", { desc = "[J]ava Extract [V]ariable" })
@@ -90,7 +97,7 @@ local function setup_jdtls()
     -- Get access to the jdtls plugin and all of its functionality
     local jdtls = require "jdtls"
 
-    -- Get the paths to the jdtls jar, operating specific configuration directory, and lombok jar
+    -- Get the paths to the launcher jdtls jar, operating specific configuration directory, and lombok jar
     local launcher, os_config, lombok = get_jdtls()
 
     -- Get the path you specified to hold project information
@@ -113,14 +120,15 @@ local function setup_jdtls()
             }
         }
     }
+    
+    -- local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-    for k,v in pairs(lsp_capabilities) do capabilities[k] = v end
+    -- for k,v in pairs(lsp_capabilities) do capabilities[k] = v end
 
     -- Get the default extended client capablities of the JDTLS language server
     local extendedClientCapabilities = jdtls.extendedClientCapabilities
     -- Modify one property called resolveAdditionalTextEditsSupport and set it to true
+    --  Unsure what it does but it is one of those recommended features
     extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
     -- Set the command that starts the JDTLS language server jar
@@ -144,7 +152,7 @@ local function setup_jdtls()
         workspace_dir
     }
 
-     -- Configure settings in the JDTLS server
+    -- Configure settings in the JDTLS server
     local settings = {
         java = {
             -- Enable code formatting
@@ -197,6 +205,7 @@ local function setup_jdtls()
                     "sun.*",
                 },
                 -- Set the order in which the language server should organize imports
+                --   If you want, you can add stuff like "io" but these are the basics
                 importOrder = {
                     "java",
                     "jakarta",
@@ -251,15 +260,22 @@ local function setup_jdtls()
     -- Function that will be ran once the language server is attached
     local on_attach = function(_, bufnr)
         -- Map the Java specific key mappings once the server is attached
+        --   this could have been set in LSP config
+        --   BUT it's better not to so that 
+        --   Java functionality is not called on code that isn't Java
         java_keymaps()
 
         -- Setup the java debug adapter of the JDTLS server
         require('jdtls.dap').setup_dap()
 
-        -- Find the main method(s) of the application so the debug adapter can successfully start up the application
-        -- Sometimes this will randomly fail if language server takes to long to startup for the project, if a ClassDefNotFoundException occurs when running
-        -- the debug tool, attempt to run the debug tool while in the main class of the application, or restart the neovim instance
+        -- Find the main method(s) of the application so the debug adapter can 
+        -- successfully start up the application.
+        -- Sometimes this will randomly fail if language server takes to long to startup for the project,
+        -- if a ClassDefNotFoundException occurs when running the debug tool, 
+        -- attempt to run the debug tool while in the main class of the application, 
+        -- or restart the neovim instance.
         -- Unfortunately I have not found an elegant way to ensure this works 100%
+        --    it's not recommended to run this inside the on_attach function however the is the only way for now.
         require('jdtls.dap').setup_dap_main_class_configs()
         -- Enable jdtls commands to be used in Neovim
         require 'jdtls.setup'.add_commands()
@@ -271,7 +287,7 @@ local function setup_jdtls()
         vim.api.nvim_create_autocmd("BufWritePost", {
             pattern = { "*.java" },
             callback = function()
-                local _, _ = pcall(vim.lsp.codelens.refresh)
+                local _, _ = pcall(vim.lsp.codelens.refresh)  -- procedural call
             end
         })
     end

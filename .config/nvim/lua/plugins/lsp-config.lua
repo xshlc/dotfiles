@@ -17,6 +17,11 @@ return {
         end
     },
     -- mason nvim dap utilizes mason to automatically ensure debug adapters you want installed are installed, mason-lspconfig will not automatically install debug adapters for us
+    -- THIS DOES NOT INSTALL "java-debug-adapter" and "java-test"
+    -- open up Mason (":Mason") and download the following ...
+    --    google-java-format
+    --    java-debug-adapter
+    --    java-test
     {
         "jay-babu/mason-nvim-dap.nvim",
         config = function()

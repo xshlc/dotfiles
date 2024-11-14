@@ -1,7 +1,7 @@
 -- Declare the path where lazy will clone plugin code
 -- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
---  from kickstart.nvim 
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+--  from kickstart.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 -- Check to see if lazy itself has been cloned, if not clone it into the lazy.nvim directory
 --if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -14,14 +14,14 @@ local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 --		lazypath,
 --	})
 --end
---  from kickstart.nvim 
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+--  from kickstart.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-    local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-    if vim.v.shell_error ~= 0 then
-        error('Error cloning lazy.nvim:\n' .. out)
-    end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		error("Error cloning lazy.nvim:\n" .. out)
+	end
 end ---@diagnostic disable-next-line: undefined-field
 
 -- Add the path to the lazy plugin repositories to the vim runtime path
@@ -47,7 +47,6 @@ require("config.options")
 require("config.keymaps")
 -- Load the auto commands from the config/autocmds.lua file
 require("config.autocmds")
-
 
 -- Setup lazy, this should always be last
 -- Tell lazy that all plugin specs are found in the plugins directory

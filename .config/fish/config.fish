@@ -22,6 +22,8 @@ set -gx PYTHONPATH /home/seong/.local/lib/python3.12 $PYTHONPATH
 
 pyenv init - | source
 
+alias obsidian="flatpak run md.obsidian.Obsidian"
+alias discord="com.discordapp.Discord"
 
 # SDKMAN 
 # Set SDKMAN_DIR environment variable

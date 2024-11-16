@@ -15,6 +15,9 @@ set -Ux PATH $HOME/.local/bin $HOME/bin $PATH
 # export SDKMAN_DIR="$HOME/.sdkman"
 # [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# aliases
+alias obsidian='flatpak run md.obsidian.Obsidian'
+alias discord='com.discordapp.Discord'
 
 # can python finally work or what
 set -gx PATH /home/seong/.local/bin $PATH

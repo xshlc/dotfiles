@@ -15,13 +15,6 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
-# neovim
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
-# aliases
-alias obsidian='flatpak run md.obsidian.Obsidian'
-alias discord='com.discordapp.Discord'
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -44,6 +37,17 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export GOPATH=$HOME/go
+
+# $JAVA_HOME setup for maven
+#export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.13.0.11-1.fc40.x86_64
+#export PATH=$JAVA_HOME/bin:$PATH
+
+# neovim
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
+# aliases
+alias obsidian='flatpak run md.obsidian.Obsidian'
+alias discord='com.discordapp.Discord'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

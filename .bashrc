@@ -40,6 +40,9 @@ export GOPATH=$HOME/go
 
 # $JAVA_HOME setup for maven
 #export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.13.0.11-1.fc40.x86_64
+#export JAVA_HOME=/usr/bin/java
+#export PATH=$JAVA_HOME/bin:$PATH
+#export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-17-hotspot
 #export PATH=$JAVA_HOME/bin:$PATH
 
 # neovim
@@ -48,10 +51,6 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 # aliases
 alias obsidian='flatpak run md.obsidian.Obsidian'
 alias discord='com.discordapp.Discord'
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 ## customizing colors and such
 HISTSIZE=-1
